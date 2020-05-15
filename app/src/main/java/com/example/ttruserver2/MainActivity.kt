@@ -4,11 +4,9 @@ package com.example.ttruserver2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -17,7 +15,6 @@ import com.example.ttruserver.ViewPagerAdapter
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import kotlinx.android.synthetic.main.main_menu_header.*
 
 //import retrofit2.Call
 //import retrofit2.Callback
@@ -139,6 +136,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //            val intent = Intent(this, LogInActivity::class.java)
 //            startActivity(intent)
 //        }
+
     }
 
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
@@ -151,6 +149,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.navigation_home-> {
                 Toast.makeText(this, "navigation_home clicked!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, LogInActivity::class.java)
+                val intent2 = Intent(this, TestActivity::class.java)
                 startActivity(intent)
             }
             R.id.navigation_bike -> {
