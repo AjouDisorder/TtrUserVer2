@@ -8,7 +8,8 @@
     android:background="@color/colorJP"
     android:gravity="bottom"
     android:paddingLeft="15dp"
-    android:paddingBottom="15dp" >
+    android:paddingBottom="15dp"
+    android:id="@+id/nav_header_part">
 
     <ImageView
         android:layout_width="75dp"

@@ -143,11 +143,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         when (p0.itemId) {
-//            R.id.user_profile-> {
-//                Toast.makeText(this, "user_profile clicked", Toast.LENGTH_SHORT).show()
+            R.id.user_profile-> {
+                Toast.makeText(this, "user_profile clicked", Toast.LENGTH_SHORT).show()
 //                val intent = Intent(this, LogInActivity::class.java)
 //                startActivity(intent)
-//            }
+            }
             R.id.navigation_home-> {
                 Toast.makeText(this, "navigation_home clicked!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, LogInActivity::class.java)
@@ -180,5 +180,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+//drawer 켜진 상태에서 뒤로가기 누르면 메인 화면에서 뒤로가기 누른 처리돼서 앱종료인데 이거 추가하면 네비게이션 드로우만 없어짐
+    override fun onBackPressed() {
+        if(drawer_layout.isDrawerOpen(GravityCompat.START)){
+            drawer_layout.closeDrawers()
+        } else {
+            super.onBackPressed()
+        }
     }
 }
