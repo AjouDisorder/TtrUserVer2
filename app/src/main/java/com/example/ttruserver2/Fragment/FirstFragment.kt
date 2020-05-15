@@ -1,10 +1,12 @@
 package com.example.ttruserver2.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.ttruserver2.Fragment.RestaurantInfo.RestaurantInfoActivity
 import com.example.ttruserver2.R
 import kotlinx.android.synthetic.main.fragment_first.view.*
 
@@ -32,6 +34,11 @@ class FirstFragment : Fragment() {
 
         val list_adapter = FirstFragAdapter(requireContext(), list_array)
         view.listview_first_fragment.adapter= list_adapter
+
+        view.listview_first_fragment.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(requireContext(), RestaurantInfoActivity::class.java)
+            startActivity(intent)
+        }
 
         return view
     }

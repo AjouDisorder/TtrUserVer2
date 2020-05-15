@@ -29,7 +29,7 @@ class FirstFragAdapter(val context: Context, val list: ArrayList<ContentsListMod
         }
 
         val item = list[position]
-        holder.view_text1?.text = item.title
+        holder.view_text1?.text = item.title//음식 리스트 내용 받아오기
 
         return view
     }
