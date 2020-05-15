@@ -13,7 +13,7 @@ class SignUpActivity : AppCompatActivity() {
 
         signup_complete_button.setOnClickListener {
             val intent = Intent(this, LogInActivity::class.java)
-            startActivity(intent)
+            startActivity(intent)//
         }
     }
 }
