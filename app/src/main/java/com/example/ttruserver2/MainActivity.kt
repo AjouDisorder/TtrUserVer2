@@ -17,6 +17,7 @@ import com.example.ttruserver.ViewPagerAdapter
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.main_menu_header.*
 
 //import retrofit2.Call
 //import retrofit2.Callback
@@ -132,13 +133,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val adapter = ViewPagerAdapter(this)
         viewpager.adapter = adapter
-    }
 
+//        user_profile.setOnClickListener {
+//            Toast.makeText(this, "user_profile clicked", Toast.LENGTH_SHORT).show()
+//            val intent = Intent(this, LogInActivity::class.java)
+//            startActivity(intent)
+//        }
+    }
 
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         when (p0.itemId) {
+//            R.id.user_profile-> {
+//                Toast.makeText(this, "user_profile clicked", Toast.LENGTH_SHORT).show()
+//                val intent = Intent(this, LogInActivity::class.java)
+//                startActivity(intent)
+//            }
             R.id.navigation_home-> {
-                Toast.makeText(this, "navigation_home clicked", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "navigation_home clicked!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, LogInActivity::class.java)
+                startActivity(intent)
             }
             R.id.navigation_bike -> {
                 Toast.makeText(this, "navigation_bike clicked", Toast.LENGTH_SHORT).show()
