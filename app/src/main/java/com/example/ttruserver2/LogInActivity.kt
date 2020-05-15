@@ -13,6 +13,7 @@ import com.example.ttruserver2.Retrofit.ResponseDTO
 import com.example.ttruserver2.Retrofit.RetrofitClient
 import kotlinx.android.synthetic.main.activity_log_in.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import kotlinx.android.synthetic.main.main_menu_header.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -70,11 +71,14 @@ class LogInActivity : AppCompatActivity() {
                 call: Call<ResponseDTO>?,
                 response: Response<ResponseDTO>?
             ) {
-                Toast.makeText(this@LogInActivity,response?.body().toString(), Toast.LENGTH_SHORT).show()
-                println(response?.body().toString())
+                Toast.makeText(this@LogInActivity,response?.body().toString(), Toast.LENGTH_LONG).show()
+                println(response?.body())
+
+
 
                 val intent = Intent(this@LogInActivity, MainActivity::class.java)
                 startActivity(intent)
+
             }
         })
     }

@@ -5,7 +5,11 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
-data class ResponseDTO(var result:String? = null)
+data class ResponseDTO(var userId:String? = null, var result:String? = null)
+
+//data class Data(val data: Accepted)
+//data class Accepted(val accepted: HashMap<String, Friend>)
+//data class Friend(val success: Boolean, val message: String)
 //data class ResponseDTO()
 
 interface IMyService{

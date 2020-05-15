@@ -52,7 +52,7 @@ class SignUpActivity : AppCompatActivity() {
                     call: Call<ResponseDTO>?,
                     response: Response<ResponseDTO>?
                 ) {
-                    Toast.makeText(this@SignUpActivity,response?.body().toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignUpActivity,response?.body().toString(), Toast.LENGTH_LONG).show()
                     println(response?.body().toString())
 
                     val intent = Intent(this@SignUpActivity, LogInActivity::class.java)
