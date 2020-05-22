@@ -78,27 +78,27 @@
         android:layout_height="60dp">
 
         <TextView
-            android:id="@+id/figure_1"
-            android:text="내용"
+            android:id="@+id/restaurant_menu"
+            android:text="메뉴"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@style/CustomTextView"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/figure_2"
+            app:layout_constraintEnd_toStartOf="@+id/restaurant_info"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"/>
         <TextView
-            android:id="@+id/figure_2"
+            android:id="@+id/restaurant_info"
             android:text="정보"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@style/CustomTextView"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/figure_3"
+            app:layout_constraintEnd_toStartOf="@+id/restaurant_review"
             app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@+id/figure_1"/>
+            app:layout_constraintStart_toEndOf="@+id/restaurant_menu"/>
         <TextView
-            android:id="@+id/figure_3"
+            android:id="@+id/restaurant_review"
             android:text="리뷰"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -106,12 +106,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@+id/figure_2"/>
+            app:layout_constraintStart_toEndOf="@+id/restaurant_info"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/content_area"
+        android:id="@+id/menu_area"
         app:layout_constraintTop_toBottomOf="@+id/menu_bar"
         android:layout_width="match_parent"
         android:layout_height="350dp">

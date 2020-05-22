@@ -72,9 +72,11 @@ class LogInActivity : AppCompatActivity() {
                 response: Response<ResponseDTO>?
             ) {
                 Toast.makeText(this@LogInActivity,response?.body().toString(), Toast.LENGTH_LONG).show()
-                println(response?.body())
+                println(response?.body()?.userId.toString())
 
-
+//                val userid = response?.body()?.userId.toString()
+//                userid.get().
+//                user_id.setText(response?.body()?.userId.toString())
 
                 val intent = Intent(this@LogInActivity, MainActivity::class.java)
                 startActivity(intent)
