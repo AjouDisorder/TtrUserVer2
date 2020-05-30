@@ -23,13 +23,13 @@ class FirstFragment : Fragment() {
         val view : View = inflater.inflate(R.layout.fragment_first, container, false)
 
         val list_array = arrayListOf<ContentsListModel>(
-            ContentsListModel("a1", "안성찜닭", 1, "c1"),
-            ContentsListModel("a2", "제육볶음", 2, "c2"),
-            ContentsListModel("a3", "치킨", 3, "c3"),
-            ContentsListModel("a4", "우동", 4, "c4"),
-            ContentsListModel("a5", "피자", 5, "c5"),
-            ContentsListModel("a6", "도넛츠", 6, "c6"),
-            ContentsListModel("a7", "짜장면", 7, "c7")
+            ContentsListModel(R.drawable.list1, "안성찜닭", 1, "c1"),
+            ContentsListModel(R.drawable.list2, "제육볶음", 2, "c2"),
+            ContentsListModel(R.drawable.list3, "치킨", 3, "c3"),
+            ContentsListModel(R.drawable.list4, "우동", 4, "c4"),
+            ContentsListModel(R.drawable.list5, "피자", 5, "c5"),
+            ContentsListModel(R.drawable.list6, "도넛츠", 6, "c6"),
+            ContentsListModel(R.drawable.list7, "짜장면" , 7, "c7")
         )
 
         val list_adapter = FirstFragAdapter(requireContext(), list_array)

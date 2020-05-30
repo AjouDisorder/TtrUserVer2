@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.ttruserver.ViewPagerAdapter
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.bottom.*
 import kotlinx.android.synthetic.main.content_main.*
 
 //import retrofit2.Call
@@ -123,8 +124,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
         }
 
+        bottom_tab_home.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
+        bottom_tab_map.setOnClickListener {
+            val intent = Intent(this, BottomMapActivity::class.java)
+            startActivity(intent)
+        }
 
+        bottom_tab_heart.setOnClickListener {
+            val intent = Intent(this, BottomHeartActivity::class.java)
+            startActivity(intent)
+        }
+        bottom_tab_coupon.setOnClickListener {
+            val intent = Intent(this, BottomCouponActivity::class.java)
+            startActivity(intent)
+        }
 
         viewpager = findViewById(R.id.main_ad_viewpager) as ViewPager
 

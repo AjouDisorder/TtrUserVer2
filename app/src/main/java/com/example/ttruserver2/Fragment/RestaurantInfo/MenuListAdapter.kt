@@ -31,7 +31,7 @@ class MenuListAdapter (val context: Context, val list: ArrayList<ContentsListMod
             view = convertView
         }
         val item = list[position]
-
+        holder.view_image1?.setImageResource(item.image)
         holder.view_text1?.text = item.title//음식 리스트 내용 받아오기
         holder.view_text2?.text = item.price.toString()//음식 리스트 내용 받아오기
         holder.view_text3?.text = item.category//음식 리스트 내용 받아오기

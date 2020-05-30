@@ -26,10 +26,10 @@ class MenuFragment : Fragment() {
         val view : View = inflater.inflate(R.layout.fragment_menu, container, false)
 
         val list_array = arrayListOf<ContentsListModel>(
-            ContentsListModel("a2", "제육볶음", 8000, "한식"),
-            ContentsListModel("a3", "치킨", 16000, "치킨"),
-            ContentsListModel("a4", "우동", 6000, "면"),
-            ContentsListModel("a7", "짜장면", 5500, "면")
+            ContentsListModel(R.drawable.list9, "제육볶음", 8000, "한식"),
+            ContentsListModel(R.drawable.list8, "치킨", 16000, "치킨"),
+            ContentsListModel(R.drawable.list6, "우동", 6000, "면"),
+            ContentsListModel(R.drawable.list7, "짜장면", 5500, "면")
         )
         menu_list1.add("a1")
         menu_list1.add("b1")

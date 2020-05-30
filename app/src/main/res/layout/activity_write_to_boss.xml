@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WriteToBossActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/write_to_boss_title_area"
+        android:text="사장님께 부탁하는 말"
+        android:textSize="20dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/write_to_boss_text_input_area"
+        app:layout_constraintTop_toBottomOf="@+id/write_to_boss_title_area"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="top"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/write_to_boss_writing_button"
+        android:text="전송하기"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        app:layout_constraintTop_toBottomOf="@+id/write_to_boss_text_input_area"
+        android:background="#92CFBF"
+        android:layout_margin="20dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
