@@ -133,7 +133,7 @@ class FirstFragment : Fragment() {
             val intent = Intent(requireContext(), RestaurantInfoActivity::class.java)
             startActivity(intent)
         }
-
+//
         return view
     }
 }
