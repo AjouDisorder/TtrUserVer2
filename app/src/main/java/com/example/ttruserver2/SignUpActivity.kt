@@ -52,11 +52,30 @@ class SignUpActivity : AppCompatActivity() {
                     call: Call<ResponseDTO>?,
                     response: Response<ResponseDTO>?
                 ) {
+//                    Toast.makeText(this@JoinActivity,response?.body().toString(), Toast.LENGTH_SHORT).show()
+//                    println(response?.body().toString())
+//                    if(response?.body()?.result == "signup success") {
+//                        dup_text.text = ""
+//                        join_id.setBackgroundResource(R.drawable.white_edittext)
+//                        val intent = Intent(this@JoinActivity, LoginActivity::class.java)
+//                        startActivity(intent)
+//                        finish()
+//                    }else{
+//                        dup_text.text = "이미 존재하는 아이디 입니다."
+//                        join_id.setBackgroundResource(R.drawable.red_edittext)
+//                    }
+
                     Toast.makeText(this@SignUpActivity,response?.body().toString(), Toast.LENGTH_LONG).show()
                     println(response?.body().toString())
+                    if(response?.body()?.result == "signup success"){
+                        val intent = Intent(this@SignUpActivity, LogInActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        Toast.makeText(this@SignUpActivity, "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT)
+                    }
 
-                    val intent = Intent(this@SignUpActivity, LogInActivity::class.java)
-                    startActivity(intent)
+
                 }
             })
 

@@ -30,7 +30,9 @@ class FirstFragAdapter(val context: Context, val list: ArrayList<ContentsListMod
 
         val item = list[position]
         holder.view_image1?.setImageResource(item.image)
-        holder.view_text1?.text = item.title//음식 리스트 내용 받아오기
+        holder.view_text1?.text = item.title
+        holder.view_text2?.text = item.price.toString()
+        holder.view_text3?.text = item.category//음식 리스트 내용 받아오기
 
         return view
     }

@@ -9,6 +9,7 @@ import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import com.example.ttruserver2.Retrofit.IMyService
+import com.example.ttruserver2.Retrofit.ResponseBInfo
 import com.example.ttruserver2.Retrofit.ResponseDTO
 import com.example.ttruserver2.Retrofit.RetrofitClient
 import kotlinx.android.synthetic.main.activity_log_in.*
@@ -32,8 +33,7 @@ class LogInActivity : AppCompatActivity() {
 
         //event
         login_button.setOnClickListener{
-            loginUser(email_area.text.toString(),password_area.text.toString())
-
+            loginUser(email_area.text.toString(), password_area.text.toString())
         }
 
 //        kakao_login_button.setOnClickListener {
@@ -61,25 +61,38 @@ class LogInActivity : AppCompatActivity() {
             return;
         }
 
-        iMyService.loginUser(id, password).enqueue(object :
-            Callback<ResponseDTO> {
-            override fun onFailure(call: Call<ResponseDTO>?, t: Throwable?) {
-                Toast.makeText(this@LogInActivity, "login fail!", Toast.LENGTH_LONG).show()
+        iMyService.loginUser(id, password).enqueue(object : Callback<ResponseBInfo> {
+            override fun onFailure(call: Call<ResponseBInfo>?, t: Throwable?) {
+                Log.d("loginUser_onFailure", t?.message.toString())
+                Toast.makeText(this@LogInActivity, "login fail!!!", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(
-                call: Call<ResponseDTO>?,
-                response: Response<ResponseDTO>?
+                call: Call<ResponseBInfo>?,
+                response: Response<ResponseBInfo>?
             ) {
-                Toast.makeText(this@LogInActivity,response?.body().toString(), Toast.LENGTH_LONG).show()
-                println(response?.body()?.userId.toString())
+                println(response?.body().toString())
+                if(response?.body()?.result.toString() == "login failed") {
+                    Toast.makeText(this@LogInActivity,"로그인 정보가 없거나 일치하지 않습니다.",Toast.LENGTH_SHORT).show()
+                }else{
+                    UserData.setOid(response?.body()?._id.toString())
+                    Log.d("user_object_id: ", UserData.getOid().toString())
+                    UserData.setBid(response?.body()?.userId.toString())
+                    Log.d("user_object_id: ", UserData.getBid().toString())
 
-//                val userid = response?.body()?.userId.toString()
-//                userid.get().
-//                user_id.setText(response?.body()?.userId.toString())
-
-                val intent = Intent(this@LogInActivity, MainActivity::class.java)
-                startActivity(intent)
+                    val intent = Intent(this@LogInActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+//                Toast.makeText(this@LogInActivity,response?.body().toString(), Toast.LENGTH_LONG).show()
+//                println(response?.body()?.userId.toString())
+//
+////                val userid = response?.body()?.userId.toString()
+////                userid.get().
+////                user_id.setText(response?.body()?.userId.toString())
+//
+//                val intent = Intent(this@LogInActivity, MainActivity::class.java)
+//                startActivity(intent)
 
             }
         })

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import com.example.ttruserver2.Fragment.FragmentAdapter
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_grid_info.*
@@ -18,15 +19,17 @@ class GridInfoActivity : AppCompatActivity() {
         val fragmentAdapter = FragmentAdapter(supportFragmentManager)
         grid_info_viewpager.adapter = fragmentAdapter
 
-        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("AI")))
+        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("시간검색")))
         grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("CSS")))
         grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("HTML ")))
         grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("ID")))
         grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("JPG")))
         grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("JS")))
-
+//        Toast.makeText(this, "asdfasdf", Toast.LENGTH_LONG).show()
         grid_info_viewpager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(grid_info_tab_layout))//when move page change tab
-
+        val gridnum = intent.getStringExtra("num")
+        grid_info_viewpager.currentItem = gridnum.toInt()
+//        val couponInfo = intent.getStringExtra("coupon_info")
         grid_info_tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{//when click tab move page
         override fun onTabReselected(p0: TabLayout.Tab?) {
 
@@ -39,6 +42,9 @@ class GridInfoActivity : AppCompatActivity() {
             override fun onTabSelected(p0: TabLayout.Tab?) {
                 if (p0 != null){
                     grid_info_viewpager.currentItem = p0.position
+//                    Toast.makeText(this@GridInfoActivity, p0.position.toString(), Toast.LENGTH_LONG).show()
+//                    Toast.makeText(this, "p0.toString()", Toast.LENGTH_LONG).show()
+
                 }
             }
 

@@ -11,9 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BottomCouponActivity"></activity>
-        <activity android:name=".BottomHeartActivity" />
-        <activity android:name=".BottomMapActivity" />
+        <activity android:name=".BottomTab.FavoriteRestaurant.BottomFavoriteRestaurantInfoActivity"></activity>
+        <activity android:name=".BottomTab.Coupon.BottomCouponInfoActivity" />
+        <activity android:name=".UseFirebaseDB.FBSignUpInfoActivity" />
+        <activity android:name=".UseFirebaseDB.FBSignUpActivity" />
+        <activity android:name=".UseFirebaseDB.FBLoginActivity" />
+        <activity android:name=".BottomTab.BottomMyInfoActivity" />
+        <activity android:name=".BottomTab.Coupon.BottomCouponActivity" />
+        <activity android:name=".BottomTab.FavoriteRestaurant.BottomFavoriteRestaurantActivity" />
         <activity android:name=".WriteToBossActivity" />
         <activity android:name=".TestActivity" />
         <activity android:name=".LogInActivity" />

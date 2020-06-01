@@ -17,19 +17,12 @@
             android:gravity="center"
             android:layout_weight="1"/>
         <ImageView
-            android:id="@+id/bottom_tab_map"
+            android:id="@+id/bottom_tab_favorite_restaurant"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="1"
-            android:src="@drawable/logo_map"/>
-        <ImageView
-            android:id="@+id/bottom_tab_heart"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:src="@drawable/logo_heart"/>
+            android:src="@drawable/logo_retaurant"/>
         <ImageView
             android:id="@+id/bottom_tab_coupon"
             android:layout_width="0dp"
@@ -37,6 +30,13 @@
             android:gravity="center"
             android:layout_weight="1"
             android:src="@drawable/logo_coupon"/>
+        <ImageView
+            android:id="@+id/bottom_tab_my_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/logo_profile"/>
     </LinearLayout>
 
     <LinearLayout
@@ -55,21 +55,21 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="1"
-            android:text="지도"
+            android:text="찜한가게"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="1"
-            android:text="찜"
+            android:text="결재내역"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="1"
-            android:text="식권함"
+            android:text="내정보"
             android:textStyle="bold"/>
     </LinearLayout>
 

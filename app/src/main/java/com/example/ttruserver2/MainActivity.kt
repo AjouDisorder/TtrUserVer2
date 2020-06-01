@@ -4,16 +4,16 @@ package com.example.ttruserver2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
 import com.example.ttruserver.ViewPagerAdapter
+import com.example.ttruserver2.BottomTab.Coupon.BottomCouponActivity
+import com.example.ttruserver2.BottomTab.FavoriteRestaurant.BottomFavoriteRestaurantActivity
+import com.example.ttruserver2.BottomTab.BottomMyInfoActivity
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_main.*
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.bottom.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -23,8 +23,9 @@ import kotlinx.android.synthetic.main.content_main.*
 //import retrofit2.Retrofit
 //import retrofit2.converter.gson.GsonConverterFactory
 
+class MainActivity : AppCompatActivity(){
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+//class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var toolbar: Toolbar //toolbar is androidx.appcompat.widget
     lateinit var drawerLayout: DrawerLayout
@@ -32,26 +33,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     internal lateinit var viewpager : ViewPager
 
+    //use firebase
+    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //navigation
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        drawerLayout = findViewById(R.id.drawer_layout)
-        navView = findViewById(R.id.nav_view)
-
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, 0, 0
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-        navView.setNavigationItemSelectedListener(this)
+//        toolbar = findViewById(R.id.toolbar)
+//        setSupportActionBar(toolbar)
+//
+//        drawerLayout = findViewById(R.id.drawer_layout)
+//        navView = findViewById(R.id.nav_view)
+//
+//        val toggle = ActionBarDrawerToggle(
+//            this, drawerLayout, toolbar, 0, 0
+//        )
+//        drawerLayout.addDrawerListener(toggle)
+//        toggle.syncState()
+//        navView.setNavigationItemSelectedListener(this)
 //navigation
         val img = arrayOf(
-            R.drawable.ai,
+            R.drawable.logo_time,
             R.drawable.css,
             R.drawable.id,
             R.drawable.jpg,
@@ -77,7 +81,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.drawable.ai
         )
         val text = arrayOf(
-            "ai",
+            "시간검색",
             "css",
             "html",
             "id",
@@ -120,7 +124,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         main_gridview.setOnItemClickListener { parent, view, position, id ->
+            val name = text[position]
+            val num = position
+//            Toast.makeText(this, name.toString() + num.toString(), Toast.LENGTH_SHORT).show()
             val intent = Intent(this, GridInfoActivity::class.java)
+            intent.putExtra("num", position.toString())
             startActivity(intent)
         }
 
@@ -129,17 +137,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
         }
 
-        bottom_tab_map.setOnClickListener {
-            val intent = Intent(this, BottomMapActivity::class.java)
+        bottom_tab_favorite_restaurant.setOnClickListener {
+            val intent = Intent(this, BottomFavoriteRestaurantActivity::class.java)
             startActivity(intent)
         }
 
-        bottom_tab_heart.setOnClickListener {
-            val intent = Intent(this, BottomHeartActivity::class.java)
-            startActivity(intent)
-        }
         bottom_tab_coupon.setOnClickListener {
             val intent = Intent(this, BottomCouponActivity::class.java)
+            startActivity(intent)
+        }
+        bottom_tab_my_info.setOnClickListener {
+            val intent = Intent(this, LogInActivity::class.java)
             startActivity(intent)
         }
 
@@ -154,55 +162,66 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //            startActivity(intent)
 //        }
 
-    }
 
-    override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-        when (p0.itemId) {
-            R.id.user_profile-> {
-                Toast.makeText(this, "user_profile clicked", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this, LogInActivity::class.java)
-//                startActivity(intent)
-            }
-            R.id.navigation_home-> {
-                Toast.makeText(this, "navigation_home clicked!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, LogInActivity::class.java)
-                val intent2 = Intent(this, TestActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.navigation_bike -> {
-                Toast.makeText(this, "navigation_bike clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.navigation_bus -> {
-                Toast.makeText(this, "navigation_bus clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.navigation_airplane -> {
-                Toast.makeText(this, "navigation_airplane clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.navigation_login -> {
-                Toast.makeText(this, "navigation_login clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.navigation_profile -> {
-                Toast.makeText(this, "navigation_profile clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.navigation_logout -> {
-                Toast.makeText(this, "navigation_logout clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.navigation_cloud -> {
-                Toast.makeText(this, "navigation_cloud clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.navigation_wifi -> {
-                Toast.makeText(this, "navigation_wifi clicked", Toast.LENGTH_SHORT).show()
-            }
-        }
-        drawerLayout.closeDrawer(GravityCompat.START)
-        return true
     }
-//drawer 켜진 상태에서 뒤로가기 누르면 메인 화면에서 뒤로가기 누른 처리돼서 앱종료인데 이거 추가하면 네비게이션 드로우만 없어짐
-    override fun onBackPressed() {
-        if(drawer_layout.isDrawerOpen(GravityCompat.START)){
-            drawer_layout.closeDrawers()
-        } else {
-            super.onBackPressed()
-        }
-    }
+//
+//    override fun onNavigationItemSelected(p0: MenuItem): Boolean {
+//        auth = FirebaseAuth.getInstance()
+//        when (p0.itemId) {
+////            R.id.user_profile-> {
+////                Toast.makeText(this, "user_profile clicked", Toast.LENGTH_SHORT).show()
+//////                val intent = Intent(this, LogInActivity::class.java)
+//////                startActivity(intent)
+////            }
+////            R.id.navigation_home-> {
+////                Toast.makeText(this, "navigation_home clicked!", Toast.LENGTH_SHORT).show()
+////                val intent = Intent(this, LogInActivity::class.java)
+////                val intent2 = Intent(this, TestActivity::class.java)
+////                startActivity(intent)
+////            }
+////            R.id.navigation_bike -> {
+////                Toast.makeText(this, "navigation_bike clicked", Toast.LENGTH_SHORT).show()
+////            }
+////            R.id.navigation_bus -> {
+////                Toast.makeText(this, "navigation_bus clicked", Toast.LENGTH_SHORT).show()
+////            }
+////            R.id.navigation_airplane -> {
+////                Toast.makeText(this, "navigation_airplane clicked", Toast.LENGTH_SHORT).show()
+////            }
+//            R.id.navigation_login -> {
+//                Toast.makeText(this, "navigation_login clicked", Toast.LENGTH_SHORT).show()
+//                val currentUser = auth.currentUser
+//                if (currentUser == null){
+//                    val intent = Intent(this, FBLoginActivity::class.java)
+//                    startActivity(intent)
+//                }else{
+//                    val intent = Intent(this, MainActivity::class.java)
+//                    startActivity(intent)
+//                }
+//            }
+//            R.id.navigation_profile -> {
+//                Toast.makeText(this, "navigation_profile clicked", Toast.LENGTH_SHORT).show()
+//            }
+//            R.id.navigation_logout -> {
+//                Toast.makeText(this, "navigation_logout clicked", Toast.LENGTH_SHORT).show()
+//                FirebaseAuth.getInstance().signOut()
+//            }
+////            R.id.navigation_cloud -> {
+////                Toast.makeText(this, "navigation_cloud clicked", Toast.LENGTH_SHORT).show()
+////            }
+////            R.id.navigation_wifi -> {
+////                Toast.makeText(this, "navigation_wifi clicked", Toast.LENGTH_SHORT).show()
+////            }
+//        }
+//        drawerLayout.closeDrawer(GravityCompat.START)
+//        return true
+//    }
+////drawer 켜진 상태에서 뒤로가기 누르면 메인 화면에서 뒤로가기 누른 처리돼서 앱종료인데 이거 추가하면 네비게이션 드로우만 없어짐
+//    override fun onBackPressed() {
+//        if(drawer_layout.isDrawerOpen(GravityCompat.START)){
+//            drawer_layout.closeDrawers()
+//        } else {
+//            super.onBackPressed()
+//        }
+//    }
 }

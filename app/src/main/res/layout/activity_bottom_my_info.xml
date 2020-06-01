@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BottomMapActivity">
+    tools:context=".BottomTab.BottomMyInfoActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="MapMap"
+        android:text="My info"
         android:textSize="120dp"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp">
         <include layout="@layout/bottom"></include>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
