@@ -19,10 +19,10 @@ class MenuListAdapter (val context: Context, val list: ArrayList<ContentsListMod
         if(convertView==null){
             view = LayoutInflater.from(context).inflate(R.layout.food_info_listviev, null)
             holder = ViewHolder()
-            holder.view_image1 = view.findViewById(R.id.lv_img_area)
-            holder.view_text1 = view.findViewById(R.id.lv_textview_1)
-            holder.view_text2 = view.findViewById(R.id.lv_textview_2)
-            holder.view_text3 = view.findViewById(R.id.lv_textview_3)
+            holder.view_image1 = view.findViewById(R.id.menu_image)
+            holder.view_text1 = view.findViewById(R.id.food_info_menu_restau_name)
+            holder.view_text2 = view.findViewById(R.id.food_info_dis_time)
+            holder.view_text3 = view.findViewById(R.id.food_info_distance_quan)
 
             view.tag = holder
 

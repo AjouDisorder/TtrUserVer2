@@ -79,14 +79,14 @@
 
         <TextView
             android:id="@+id/restaurant_menu"
-            android:text="메뉴"
+            style="@style/CustomTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/CustomTextView"
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="메뉴"
             app:layout_constraintEnd_toStartOf="@+id/restaurant_info"
             app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/restaurant_info"
             android:text="정보"

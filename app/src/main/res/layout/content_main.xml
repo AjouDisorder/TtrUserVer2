@@ -22,6 +22,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
                 <TextView
+                    android:id="@+id/user_now_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="내가 설정한 주소"

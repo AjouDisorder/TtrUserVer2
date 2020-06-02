@@ -9,18 +9,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.ttruserver2.R
 
-class FirstFragAdapter(val context: Context, val list: ArrayList<ContentsListModel>) : BaseAdapter() {
+class FirstFragAdapter(val context: Context, val list: ArrayList<TimeSearchListModel>) : BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view : View
         val holder : ViewHolder
 
         if(convertView==null){
-            view = LayoutInflater.from(context).inflate(R.layout.food_info_listviev, null)
+            view = LayoutInflater.from(context).inflate(R.layout.minseock_menu_list_item, null)
             holder = ViewHolder()
-            holder.view_image1 = view.findViewById(R.id.lv_img_area)
-            holder.view_text1 = view.findViewById(R.id.lv_textview_1)
-            holder.view_text2 = view.findViewById(R.id.lv_textview_2)
-            holder.view_text3 = view.findViewById(R.id.lv_textview_3)
+            holder.menuPicture = view.findViewById(R.id.iv_menuPicture)
+            holder.menuTitle = view.findViewById(R.id.tv_menuTitle)
+            holder.startTime = view.findViewById(R.id.tv_startTime)
+            holder.endTime = view.findViewById(R.id.tv_endTime)
+            holder.menuDistance = view.findViewById(R.id.tv_menuDistance)
+            holder.quantity = view.findViewById(R.id.tv_quantity)
+            holder.discount = view.findViewById(R.id.tv_discount)
+            holder.originPrice = view.findViewById(R.id.tv_originPrice)
+            holder.discountedPrice = view.findViewById(R.id.tv_discountedPrice)
 
             view.tag = holder
         } else {
@@ -29,10 +34,15 @@ class FirstFragAdapter(val context: Context, val list: ArrayList<ContentsListMod
         }
 
         val item = list[position]
-        holder.view_image1?.setImageResource(item.image)
-        holder.view_text1?.text = item.title
-        holder.view_text2?.text = item.price.toString()
-        holder.view_text3?.text = item.category//음식 리스트 내용 받아오기
+        holder.menuPicture?.setImageResource(item.menuPicture)
+        holder.menuTitle?.text = item.menuTitle
+        holder.startTime?.text = item.startTime
+        holder.endTime?.text = item.endTime
+        holder.menuDistance?.text = item.menuDistance.toString()
+        holder.quantity?.text = item.quantity.toString()
+        holder.discount?.text = item.discount.toString()
+        holder.originPrice?.text = item.originPrice.toString()
+        holder.discountedPrice?.text = item.discountedPrice.toString()
 
         return view
     }
@@ -49,10 +59,16 @@ class FirstFragAdapter(val context: Context, val list: ArrayList<ContentsListMod
         return list.size
     }
 
+
     private class ViewHolder{
-        var view_image1 : ImageView? = null
-        var view_text1 : TextView? = null
-        var view_text2 : TextView? = null
-        var view_text3 : TextView? = null
+        var menuPicture : ImageView? = null
+        var menuTitle : TextView? = null
+        var startTime : TextView? = null
+        var endTime : TextView? = null
+        var menuDistance : TextView? = null
+        var quantity : TextView? = null
+        var discount : TextView? = null
+        var originPrice : TextView? = null
+        var discountedPrice : TextView? = null
     }
 }
