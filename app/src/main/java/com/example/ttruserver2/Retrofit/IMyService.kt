@@ -72,7 +72,11 @@ interface IMyService{
                      @Field("method") method: String,
                      @Field("messageForBoss") messageForBoss: String): Call<ResponseBody>
 
+    @GET("/user/getTicketList")
+    fun getTicketList(@Query("user_id") user_id : String): Call<ResponseBody>
+
 
 //    /user/createTicket
+//    /user/getTicketList
 
 }

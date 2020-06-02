@@ -147,7 +147,19 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent)
         }
         bottom_tab_my_info.setOnClickListener {
+//            if(UserData.getOid() == null){
+//                val intent = Intent(this, LogInActivity::class.java)
+//                startActivity(intent)
+//            } else {
+//                val intent = Intent(this, ConfirmLoginActivity::class.java)
+//                Toast.makeText(this, "user_obj_id: " + UserData.getOid(), Toast.LENGTH_SHORT).show()
+//                startActivity(intent)
+//            }
             val intent = Intent(this, LogInActivity::class.java)
+//            if(::UserData.){
+//                Toast.makeText(this, "user_obj_id: " + UserData.getOid(), Toast.LENGTH_SHORT).show()
+//            }
+//            Toast.makeText(this, "user_obj_id: " + UserData.getOid(), Toast.LENGTH_SHORT).show()
             startActivity(intent)
         }
 

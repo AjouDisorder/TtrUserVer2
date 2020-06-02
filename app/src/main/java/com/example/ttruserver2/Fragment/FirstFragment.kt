@@ -106,6 +106,7 @@ class FirstFragment : Fragment() {
             intent.putExtra("originPrice", dataTimeMenu.originPrice.toString())
             intent.putExtra("discountedPrice", dataTimeMenu.discountedPrice.toString())
             intent.putExtra("discount", dataTimeMenu.discount.toString())
+            intent.putExtra("menuId", dataTimeMenu.menuId.toString())
 
             startActivity(intent)
         }

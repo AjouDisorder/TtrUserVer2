@@ -2,7 +2,18 @@ package com.example.ttruserver2.BottomTab.Coupon
 
 data class BottomCouponContentsListModel(
     var image : Int,
-    var title : String,
-    var price : Int,
-    var category: String
+    var location_lat: Double,
+    var location_lng: Double,
+    var available: String,
+    var coupon_id: String,
+    var restaurant_id: String,
+    var address: String,
+    var quantity: Int,
+    var totalPrice: Int,
+    var userName: String,
+    var menuName: String,
+    var method: String,
+    var value: String,
+    var messageForBoss: String
+
 )

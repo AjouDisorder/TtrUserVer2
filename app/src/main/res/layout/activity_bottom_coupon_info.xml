@@ -24,7 +24,7 @@
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@+id/bottom_coupon_info_lecture_text"
         android:layout_marginTop="10dp"
-        android:text="최근리뷰"/>
+        android:text="식권정보_테스"/>
     <View
         android:id="@+id/bottom_coupon_info_header_line"
         android:layout_width="match_parent"
@@ -61,6 +61,46 @@
             android:layout_marginTop="30dp"
             android:layout_marginLeft="30dp"
             android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/coupondata_test1"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_coupon_info_price_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="20dp"
+            android:text="test" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/coupondata_test2"
+            app:layout_constraintTop_toBottomOf="@+id/coupondata_test1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="20dp"
+            android:text="test" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/coupondata_test3"
+            app:layout_constraintTop_toBottomOf="@+id/coupondata_test2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="20dp"
+            android:text="test" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/coupondata_test4"
+            app:layout_constraintTop_toBottomOf="@+id/coupondata_test3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="20dp"
+            android:text="test" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/coupondata_test5"
+            app:layout_constraintTop_toBottomOf="@+id/coupondata_test4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="20dp"
+            android:text="test" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
         android:id="@+id/bottom_coupon_info_header_bottom_line"

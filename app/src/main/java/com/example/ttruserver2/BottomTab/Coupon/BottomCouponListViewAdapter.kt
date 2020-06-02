@@ -30,9 +30,9 @@ class BottomCouponListViewAdapter (val context: Context, val list: ArrayList<Bot
 
         val item = list[position]
         holder.coupon_food_img?.setImageResource(item.image)
-        holder.coupon_food_title?.text = item.title
-        holder.coupon_food_price?.text = item.price.toString()
-        holder.coupon_food_category?.text = item.category
+        holder.coupon_food_title?.text = item.menuName
+        holder.coupon_food_price?.text = item.totalPrice.toString()
+        holder.coupon_food_category?.text = item.address
 
         return view
     }

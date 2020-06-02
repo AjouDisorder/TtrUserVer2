@@ -33,7 +33,15 @@ class LogInActivity : AppCompatActivity() {
 
         //event
         login_button.setOnClickListener{
+//            if(UserData.getOid() == null){
+//                loginUser(email_area.text.toString(), password_area.text.toString())
+//            } else {
+//                val intent = Intent(this, ConfirmLoginActivity::class.java)
+//                Toast.makeText(this, "user_obj_id: " + UserData.getOid(), Toast.LENGTH_SHORT).show()
+//                startActivity(intent)
+//            }
             loginUser(email_area.text.toString(), password_area.text.toString())
+
         }
 
 //        kakao_login_button.setOnClickListener {
