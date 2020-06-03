@@ -14,6 +14,7 @@ data class BottomCouponContentsListModel(
     var menuName: String,
     var method: String,
     var value: String,
-    var messageForBoss: String
+    var messageForBoss: String,
+    var restaurantTitle: String
 
 )

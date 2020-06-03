@@ -20,11 +20,14 @@ class GridInfoActivity : AppCompatActivity() {
         grid_info_viewpager.adapter = fragmentAdapter
 
         grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("시간검색")))
-        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("CSS")))
-        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("HTML ")))
-        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("ID")))
-        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("JPG")))
-        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("JS")))
+        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("치킨&피자")))
+        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("족발&보쌈")))
+        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("돈까스&일식")))
+//        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("세계음식")))
+//        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("햄버거")))
+//        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("밥류")))
+//        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("카페&빵&디저")))
+//        grid_info_tab_layout.addTab(grid_info_tab_layout.newTab().setCustomView(createTabView("육고기")))
 //        Toast.makeText(this, "asdfasdf", Toast.LENGTH_LONG).show()
         grid_info_viewpager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(grid_info_tab_layout))//when move page change tab
         val gridnum = intent.getStringExtra("num")

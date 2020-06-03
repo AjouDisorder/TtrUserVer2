@@ -1,5 +1,7 @@
 package com.example.ttruserver2.Fragment
 
+import java.io.Serializable
+
 data class TimeSearchListModel (
     val menuPicture: Int,
     val menuTitle: String,
@@ -12,5 +14,7 @@ data class TimeSearchListModel (
     val discountedPrice: Int,
     val menuId: String,
     val restaurantId: String,
-    val restaurantTitle: String
+    val restaurantTitle: String,
+    val type: String,
+    val method: String
 )

@@ -44,6 +44,7 @@ class BottomCouponInfoActivity : AppCompatActivity() {
         val method = intent.getStringExtra("method")
         val value = intent.getStringExtra("value")
         val messageForBoss = intent.getStringExtra("messageForBoss")
+        var restaurantTitle = intent.getStringExtra("restaurantTitle")
 
 //        val couponInfo = intent.getStringExtra("coupon_info")
 //        Toast.makeText(this, "넘어온 정보: " + couponInfo, Toast.LENGTH_LONG).show()
@@ -52,11 +53,18 @@ class BottomCouponInfoActivity : AppCompatActivity() {
 //        Log.d("asd", qwe[1].toString())
 //        bottom_coupon_info_lecture_text.setText()
         bottom_coupon_info_lecture_text.setText(menuName)
-        coupondata_test1.setText(location_lat)
-        coupondata_test2.setText(location_lng)
-        coupondata_test3.setText(userName)
-        coupondata_test4.setText(totalPrice)
-        coupondata_test5.setText(value)
+        bottom_coupon_info_price_real_text.setText(restaurantTitle)
+        bottom_coupon_info_price_real_text4.setText(address)
+        var method_kr_ : String? = null
+        if(method == "forhere") {
+            method_kr_ = "매장 식사"
+        }else if(method == "takeout"){
+            method_kr_ = "포장"
+        }
+        bottom_coupon_info_price_real_text3.setText(method_kr_)
+        bottom_coupon_info_price_real_text8.setText(quantity.toString())
+        bottom_coupon_info_price_real_text10.setText(totalPrice)
+//        coupondata_test5.setText(value)
 
         val multiFormatWriter = MultiFormatWriter()
         val bitMatrix: BitMatrix = multiFormatWriter.encode(value, BarcodeFormat.QR_CODE, 600, 600)

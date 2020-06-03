@@ -11,6 +11,7 @@ import com.example.ttruserver2.MainActivity
 import com.example.ttruserver2.R
 import com.example.ttruserver2.Retrofit.IMyService
 import com.example.ttruserver2.Retrofit.RetrofitClient
+import com.example.ttruserver2.UserData
 import kotlinx.android.synthetic.main.activity_bottom_coupon.*
 import kotlinx.android.synthetic.main.bottom.*
 
@@ -35,9 +36,15 @@ class BottomCouponActivity : AppCompatActivity() {
         iMyService = retrofit.create(IMyService::class.java)
 
         val coupon_list = arrayListOf<BottomCouponContentsListModel>(
-            BottomCouponContentsListModel(R.drawable.list7,12.55, 137.25, "true", "coupon_id", "restaurant_id",
-                "address", 1, 15000, "username", "test_data_set", "method", "value", "messageforboss")
+//            BottomCouponContentsListModel(R.drawable.list7,12.55, 137.25, "true", "coupon_id", "restaurant_id",
+//                "address", 1, 15000, "username", "test_data_set", "method", "value", "messageforboss", "restrest")
         )
+        val menuTypeToIcons = mapOf("치킨&피자" to R.drawable.menu_chickenpizza, "족발&보쌈" to R.drawable.menu_jokbal,
+            "돈까스&일식" to R.drawable.menu_japan, "세계음식" to R.drawable.menu_nation, "햄버거" to R.drawable.menu_hambur,
+            "밥류" to R.drawable.menu_rice, "카페&빵&디저트" to R.drawable.menu_cafe, "육고기" to R.drawable.menu_meat,
+            "면" to R.drawable.menu_noodle, "분식&야식" to R.drawable.menu_snack, "찜&탕&찌개" to R.drawable.menu_soup,
+            "반찬&과일" to R.drawable.menu_fruit, "떡&기타" to R.drawable.menu_ricecake,
+            "샐러드&다이어트" to R.drawable.menu_salad, "편의점" to R.drawable.menu_convstore)
 //
 //        var image : Int,
 //        var location_lat: String,
@@ -57,7 +64,7 @@ class BottomCouponActivity : AppCompatActivity() {
 
         val bottomCouponAdapter = BottomCouponListViewAdapter(this, coupon_list)
 
-        iMyService.getTicketList("5ed4c6fb1ee7260a21652817").enqueue(object : Callback<ResponseBody>{
+        iMyService.getTicketList(UserData.getOid().toString()).enqueue(object : Callback<ResponseBody>{
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
 //                Log.d("getTicketList", "get ticket list is fail!!")
                 Log.d("getTicketList_onFailure", t?.message.toString())
@@ -92,10 +99,11 @@ class BottomCouponActivity : AppCompatActivity() {
                     var method = jsonObject.getString("method")
                     var value = jsonObject.getString("value")
                     var messageForBoss = jsonObject.getString("messageForBoss")
+                    var restaurantTitle = jsonObject.getString("restaurantTitle")
                     Log.d("messageboss_contents", messageForBoss)
 
                     coupon_list.add(BottomCouponContentsListModel(image, location_lat, location_lng, available, coupon_id, restaurant_id,
-                        address, quantity, totalPrice, userName, menuName, method, value, messageForBoss))
+                        address, quantity, totalPrice, userName, menuName, method, value, messageForBoss, restaurantTitle))
                 }
                 bottom_coupon_activity_listview.adapter = bottomCouponAdapter
             }
@@ -143,7 +151,8 @@ class BottomCouponActivity : AppCompatActivity() {
             intent.putExtra("method", dataCouponList.method.toString())
             intent.putExtra("value", dataCouponList.value.toString())
             intent.putExtra("messageForBoss", dataCouponList.messageForBoss.toString())
-
+            intent.putExtra("restaurantTitle",dataCouponList.restaurantTitle.toString())
+            startActivity(intent)
         }
 
         bottom_tab_home.setOnClickListener {

@@ -16,7 +16,7 @@ class GridViewAdapter(val context: Context, val girid_img_list:Array<Int>, val t
         view.gridview_img.setImageResource(girid_img_list[position])
 
         return view
-
+//
     } //make gridview adapter
 
     override fun getItem(position: Int): Any {

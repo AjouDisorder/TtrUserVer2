@@ -14,6 +14,7 @@ import com.example.ttruserver2.BottomTab.FavoriteRestaurant.BottomFavoriteRestau
 import com.example.ttruserver2.BottomTab.BottomMyInfoActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.auth.User
 import kotlinx.android.synthetic.main.bottom.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//        UserData.setOid("nologin")
 //navigation
 //        toolbar = findViewById(R.id.toolbar)
 //        setSupportActionBar(toolbar)
@@ -54,60 +56,20 @@ class MainActivity : AppCompatActivity(){
 //        toggle.syncState()
 //        navView.setNavigationItemSelectedListener(this)
 //navigation
-        val img = arrayOf(
-            R.drawable.logo_time,
-            R.drawable.css,
-            R.drawable.id,
-            R.drawable.jpg,
-            R.drawable.js,
-            R.drawable.mp4,
-            R.drawable.pdf,
-            R.drawable.php,
-            R.drawable.png,
-            R.drawable.psd,
-            R.drawable.tiff
-        )
-        val img2 = arrayOf(
-            R.drawable.tiff,
-            R.drawable.psd,
-            R.drawable.png,
-            R.drawable.php,
-            R.drawable.pdf,
-            R.drawable.mp4,
-            R.drawable.js,
-            R.drawable.jpg,
-            R.drawable.id,
-            R.drawable.css,
-            R.drawable.ai
-        )
-        val text = arrayOf(
-            "시간검색",
-            "css",
-            "html",
-            "id",
-            "jpg",
-            "js",
-            "mp4",
-            "pdf",
-            "php",
-            "png",
-            "psd",
-            "tiff"
-        )
-        val text2 = arrayOf(//grid contents
-            "tiff",
-            "psd",
-            "png",
-            "php",
-            "pdf",
-            "mp4",
-            "js",
-            "jpg",
-            "id",
-            "html",
-            "css",
-            "ai"
-        )
+
+        val img = arrayOf( R.drawable.menu_time, R.drawable.menu_chickenpizza, R.drawable.menu_jokbal,
+            R.drawable.menu_japan, R.drawable.menu_nation, R.drawable.menu_hambur, R.drawable.menu_rice,
+            R.drawable.menu_cafe, R.drawable.menu_meat, R.drawable.menu_noodle, R.drawable.menu_snack,
+            R.drawable.menu_soup, R.drawable.menu_fruit, R.drawable.menu_ricecake, R.drawable.menu_salad, R.drawable.menu_convstore)
+
+        val img2 = arrayOf( R.drawable.store_map, R.drawable.store_buffet, R.drawable.store_drink,
+            R.drawable.store_convstore, R.drawable.store_korean, R.drawable.store_chicken, R.drawable.store_pizza,
+            R.drawable.store_jokbal, R.drawable.store_japan, R.drawable.store_american, R.drawable.store_fastfood,
+            R.drawable.store_snack, R.drawable.store_dessert, R.drawable.store_soup, R.drawable.store_dosirak, R.drawable.store_china)
+        val text = arrayOf("시간 검색", "치킨&피자", "족발&보쌈", "돈까스&일식", "세계음식", "햄버거", "밥류",
+            "카페&빵&디저트", "육고기", "면", "분식&야식", "찜&탕&찌개", "반찬&과일", "떡&기타", "샐러드&다이어트", "편의점")
+        val text2 = arrayOf("지도 검색", "뷔페&샐러드", "술집", "편의점", "한식", "치킨", "피자", "족발&보쌈",
+            "돈까스&일식&회", "양식&아시안", "패스트푸드", "분식", "카페&디저트", "찜&탕&찌개", "도시락", "중국집")
 
 //        val
 
@@ -147,20 +109,18 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent)
         }
         bottom_tab_my_info.setOnClickListener {
-//            if(UserData.getOid() == null){
-//                val intent = Intent(this, LogInActivity::class.java)
-//                startActivity(intent)
-//            } else {
-//                val intent = Intent(this, ConfirmLoginActivity::class.java)
-//                Toast.makeText(this, "user_obj_id: " + UserData.getOid(), Toast.LENGTH_SHORT).show()
-//                startActivity(intent)
-//            }
-            val intent = Intent(this, LogInActivity::class.java)
-//            if(::UserData.){
-//                Toast.makeText(this, "user_obj_id: " + UserData.getOid(), Toast.LENGTH_SHORT).show()
-//            }
-//            Toast.makeText(this, "user_obj_id: " + UserData.getOid(), Toast.LENGTH_SHORT).show()
-            startActivity(intent)
+            if(UserData.getOid() == null){
+                val intent = Intent(this, LogInActivity::class.java)
+                Toast.makeText(this, "user_obj_id: " + UserData.getOid(), Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, ConfirmLoginActivity::class.java)
+                Toast.makeText(this, "user_obj_id: " + UserData.getOid(), Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            }
+//            val intent = Intent(this, LogInActivity::class.java)
+//
+//            startActivity(intent)
         }
 
         viewpager = findViewById(R.id.main_ad_viewpager) as ViewPager

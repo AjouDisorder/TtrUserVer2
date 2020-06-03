@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:text="결제내역"
         android:textColor="#000000"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 

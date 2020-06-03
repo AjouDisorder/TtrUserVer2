@@ -29,29 +29,29 @@ class WriteToBossActivity : AppCompatActivity() {
         val discount_method = "forhere"
         val discount_bosstalk = "boss message test cham 2 seul"
 
-        write_to_boss_writing_button.setOnClickListener {
-            iMyService.createTicket(discount_menu_id, discount_quantity, discount_user_id,
-                discount_totalPrice, discount_method, discount_bosstalk).enqueue(object : Callback<ResponseBody>{
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                    Log.d("create_ticket:  ", "create_ticket is fail!!")
-                }
-
-                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                    var result = response.body()?.string()
-                    Log.d("create_ticket_result:  ", result)
-//                    var jsonArray = JSONArray(result)
-//                    println(jsonArray)
-//                for (i in 0..(jsonArray.length()-1)){
-//                    var jsonObject: JSONObject = jsonArray.getJSONObject(i)
-//                    var _id = jsonObject.getString("_id")
-//                    var title = jsonObject.getString("title")
-//                    var type = jsonObject.getString("type")
-//                    var discount = jsonObject.getString("discount")
-//                    println(title + type + discount)
+//        write_to_boss_writing_button.setOnClickListener {
+//            iMyService.createTicket(discount_menu_id, discount_quantity, discount_user_id,
+//                discount_totalPrice, discount_method, discount_bosstalk).enqueue(object : Callback<ResponseBody>{
+//                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+//                    Log.d("create_ticket:  ", "create_ticket is fail!!")
 //                }
-                }
-
-            })
-        }
+//
+//                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+//                    var result = response.body()?.string()
+//                    Log.d("create_ticket_result:  ", result)
+////                    var jsonArray = JSONArray(result)
+////                    println(jsonArray)
+////                for (i in 0..(jsonArray.length()-1)){
+////                    var jsonObject: JSONObject = jsonArray.getJSONObject(i)
+////                    var _id = jsonObject.getString("_id")
+////                    var title = jsonObject.getString("title")
+////                    var type = jsonObject.getString("type")
+////                    var discount = jsonObject.getString("discount")
+////                    println(title + type + discount)
+////                }
+//                }
+//
+//            })
+//        }
     }
 }

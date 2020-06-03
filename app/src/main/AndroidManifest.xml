@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ConfirmLoginActivity"></activity>
+        <activity android:name=".CreateTicketActivity"></activity>
+        <activity android:name=".ConfirmLoginActivity" />
         <activity android:name=".BottomTab.FavoriteRestaurant.BottomFavoriteRestaurantInfoActivity" />
         <activity android:name=".BottomTab.Coupon.BottomCouponInfoActivity" />
         <activity android:name=".UseFirebaseDB.FBSignUpInfoActivity" />
@@ -21,7 +22,7 @@
         <activity android:name=".BottomTab.Coupon.BottomCouponActivity" />
         <activity android:name=".BottomTab.FavoriteRestaurant.BottomFavoriteRestaurantActivity" />
         <activity android:name=".WriteToBossActivity" />
-        <activity android:name=".TestActivity" />
+        <activity android:name=".SearchedMenuDetailActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".Fragment.RestaurantInfo.RestaurantInfoActivity" />

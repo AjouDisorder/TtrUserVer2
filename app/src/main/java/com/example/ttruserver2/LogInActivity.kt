@@ -85,8 +85,8 @@ class LogInActivity : AppCompatActivity() {
                 }else{
                     UserData.setOid(response?.body()?._id.toString())
                     Log.d("user_object_id: ", UserData.getOid().toString())
-                    UserData.setBid(response?.body()?.userId.toString())
-                    Log.d("user_object_id: ", UserData.getBid().toString())
+                    UserData.setUid(response?.body()?.userId.toString())
+                    Log.d("user_object_id: ", UserData.getUid().toString())
 
                     val intent = Intent(this@LogInActivity, MainActivity::class.java)
                     startActivity(intent)

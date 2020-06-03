@@ -70,7 +70,8 @@ interface IMyService{
                      @Field("user_id") user_id: String,
                      @Field("totalPrice") totalPrice: Int,
                      @Field("method") method: String,
-                     @Field("messageForBoss") messageForBoss: String): Call<ResponseBody>
+                     @Field("messageForBoss") messageForBoss: String,
+                     @Field("restaurantTitle") restaurantTitle: String): Call<ResponseBody>
 
     @GET("/user/getTicketList")
     fun getTicketList(@Query("user_id") user_id : String): Call<ResponseBody>
